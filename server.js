@@ -12,7 +12,6 @@ const sodium = require('./sodium')
 mongoose.set("strictQuery", true);
 mongoose.connect(process.env.url, { useNewUrlParser: true });
 
-
 const userScheema = {
     email: String,
     name: String,
@@ -21,7 +20,6 @@ const userScheema = {
 }
 
 const userModel = mongoose.model('user', userScheema)
-
 
 app.post('/signup', (req, res) => {
     try {
@@ -68,8 +66,6 @@ app.get('/login', async (req, res) => {
                 }
             }
 
-            console.log(userObj)
-
             res.send(userObj)
         }
         else {
@@ -81,7 +77,5 @@ app.get('/login', async (req, res) => {
     }
 
 })
-
-
 
 app.listen(3005)
